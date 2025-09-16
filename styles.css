@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.banner {
+    background: #f8f9ff;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.banner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #666;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff4757;
+    transform: rotate(90deg) scale(1.1);
+}
+
+.visual-section {
+    flex-shrink: 0;
+    width: 200px;
+    height: 150px;
+    background-image: url('./currency.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+.banner:hover .visual-section {
+    transform: scale(1.05) rotate(2deg);
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+}
+
+.content-section {
+    flex: 1;
+}
+
+.title {
+    font-size: 42px;
+    font-weight: 900;
+    background: #667eea;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    transition: transform 0.3s ease;
+}
+
+.banner:hover .title {
+    transform: translateX(3px);
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #636e72;
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+.description {
+    font-size: 15px;
+    color: #636e72;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    opacity: 0.8;
+}
+
+.cta-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.check-mark {
+    width: 36px;
+    height: 36px;
+    background: #00a085;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.more-info-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.more-info-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    transition: width 0.3s ease;
+}
+
+.more-info-link:hover {
+    color: #764ba2;
+    transform: translateX(3px);
+}
+
+.more-info-link:hover::after {
+    width: 100%;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+    }
+    50% {
+        box-shadow: 0 6px 20px rgba(0, 184, 148, 0.5);
+    }
+}
+
+/* Animation for removal */
+.banner.removing {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+    transition: all 0.4s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 25px;
+    }
+
+    .visual-section {
+        width: 160px;
+        height: 120px;
+    }
+
+    .title {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .description {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .cta-section {
+        justify-content: center;
+    }
+
+    .check-mark {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .more-info-link {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .banner {
+        padding: 25px 15px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .visual-section {
+        width: 140px;
+        height: 105px;
+    }
+}
